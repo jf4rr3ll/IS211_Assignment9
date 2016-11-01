@@ -14,10 +14,10 @@ soup = BeautifulSoup(page.read(), "lxml")
 
 def appleStock():
     rows = soup.find_all('tr')
-    for row in rows:
+    for i in rows:
         try:
-            date = rows.contents[0].get_text()
-            close = rows.contents[5].get_text()
+            date = i.contents[0].get_text()
+            close = i.contents[5].get_text()
             json_string = {"Date": date, "Close_Price": close}
             print(json.dumps(json_string))
         except:
